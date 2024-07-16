@@ -56,14 +56,37 @@ function loadData(url){
     // document.getElementById("source").innerHTML="<md-block src='source/home'>404</md-block>";
 }
 
+// function loadLocale(){
+//     console.log("[PRLDevBlog] Collecting Locale...");
+//     var locale = navigator.language;
+//     console.log("[PRLDevBlog] Detect Language: "+locale);
+
+//     var http = new XMLHttpRequest();
+//     var template_url = "/locale/"+locale+".json";
+//     console.log(template_url)
+//     http.open("GET", template_url)
+
+//     http.onerror = function() {
+//         // http.open("GET", "locale/en.json");
+//     }
+
+//     http.onload = function(){
+//         console.log(http.response)
+//         return JSON.parse(http.response);
+//     }
+// }
+
 function listUpdate(){
+    // var locale = loadLocale();
+    // console.log(locale);
+
     console.log("[PRLDevBlog] Collecting items...")
 
     var http = new XMLHttpRequest();
     var template_url = "list.json";
     http.open("GET", template_url)
 
-    http.onprogress = function(){
+    http.onloadstart = function(){
         document.getElementById("list").innerHTML = "Please wait...";
     }
 
@@ -77,26 +100,26 @@ function listUpdate(){
         json.forEach(root => {
             if(root.root != null){
                 console.log("[PRLDevBlog] Collected Root: "+root.root);
-                var rootTitle = root.root;
+                var rootTitle = root.title;
 
                 var items = ""
                 root.datas.forEach(item => {
                     console.log("[PRLDevBlog] Collected "+rootTitle+" Item: "+item.id);
-                    var title = item.id
+                    var title = item.title
                     var date = new Date(item.date);
                     var dateString = date.toLocaleString();
                     items += '<div class="item" onclick="menuHide();loadData(\''+item.id+'\')"><h3>'+title+'</h3><div>'+dateString+'</div></div>';
                 });
 
                 result += '<div class="root">'
-                + '<h3  onclick="rootItemDisplay(\''+root.root+'\')"><span id="'+root.root+'-direction">></span> '+root.root+'</h3>'
+                + '<h3  onclick="rootItemDisplay(\''+root.root+'\')"><span id="'+root.root+'-direction">></span> '+rootTitle+'</h3>'
                 + '<div class="rootitem" id="'+root.root+'-items" style="display: none;">' + items + '</div></div>'
             }
             else if (root.id != null){
                     console.log("[PRLDevBlog] Collected Top item: "+root.id);
                     var date = new Date(root.date);
                     //TODO 임시
-                    var title = root.id
+                    var title = root.title
                     var dateString = date.toLocaleString();
                     result += '<div class="item" onclick="menuHide();loadData(\''+root.id+'\')"><h3>'+title+'</h3><div>'+dateString+'</div></div>';
             }

@@ -1,15 +1,18 @@
 [
     {
         "root":"landwar",
+        "title":"LandWar",
         "datas":[
             {
                 "id":"landwar/1",
+                "title": "#0 시작",
                 "date":""
             }
         ]
     },
     {
         "id":"license",
+        "title":"라이선스",
         "date":"-1 "
     }
 ]
