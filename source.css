@@ -1,0 +1,63 @@
+#core>#source h2{
+    margin: 10px 0 10px 0;
+    border-bottom: 1px solid black;
+}
+
+#core>#source h3{
+    margin: 10px 0 10px 0;
+}
+
+#core>#source h4{
+    margin: 10px 0 10px 0;
+}
+
+#core>#source h5{
+    margin: 10px 0 10px 0;
+}
+
+#core>#source a{
+    color: rgb(0, 156, 0);
+    text-decoration: none;
+}
+
+#core>#source a:hover{
+    color: rgb(93, 218, 93);
+}
+
+#core>#source div.cite{
+    border: 1px solid black;
+    padding: 5px;
+    margin: 10px 0 10px 0;
+}
+
+#core>#source div.note {
+    background-color: rgb(186, 186, 222);
+    margin: 5px 0 5px 0;
+    font-weight: 600;
+    color: black
+}
+
+#core>#source div.note>div {
+    background-color: rgb(142, 142, 205);
+    color: white;
+    font-weight: 400;
+}
+
+@media (prefers-color-scheme: dark) {
+    #core>#source a{
+        color: aqua;
+
+    }
+
+    #core>#source a:hover{
+        color: rgb(8, 180, 180)
+    }
+
+    #core>#source h2{
+        border-bottom: 1px solid white;
+    }
+
+    #core>#source div.cite{
+        border: 1px solid white;
+    }
+}

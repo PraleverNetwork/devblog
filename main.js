@@ -86,9 +86,9 @@ function listUpdate(){
     var template_url = "list.json";
     http.open("GET", template_url)
 
-    http.onloadstart = function(){
-        document.getElementById("list").innerHTML = "Please wait...";
-    }
+    // http.onloadstart = function(){
+    //     document.getElementById("list").innerHTML = "Please wait...";
+    // }
 
     http.onload = function() {
         var result = "";
@@ -111,9 +111,16 @@ function listUpdate(){
                     items += '<div class="item" onclick="menuHide();loadData(\''+item.id+'\')"><h3>'+title+'</h3><div>'+dateString+'</div></div>';
                 });
 
+                display = "none";
+                displayDirection = ">"
+                if(root.root == "landwar"){
+                    display = "block";
+                    displayDirection = "–"
+                } 
+
                 result += '<div class="root">'
-                + '<h3  onclick="rootItemDisplay(\''+root.root+'\')"><span id="'+root.root+'-direction">></span> '+rootTitle+'</h3>'
-                + '<div class="rootitem" id="'+root.root+'-items" style="display: none;">' + items + '</div></div>'
+                + '<h3  onclick="rootItemDisplay(\''+root.root+'\')"><span id="'+root.root+'-direction">'+displayDirection+'</span> '+rootTitle+'</h3>'
+                + '<div class="rootitem" id="'+root.root+'-items" style="display: '+display+';">' + items + '</div></div>'
             }
             else if (root.id != null){
                     console.log("[PRLDevBlog] Collected Top item: "+root.id);

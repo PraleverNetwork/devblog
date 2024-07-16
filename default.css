@@ -144,9 +144,17 @@ body{
         bottom: 0px;
         height: 100vh;
     }
+
+    #core>#source{
+        min-height: calc( 100vh - 90px);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(36, 36, 36);
+    }
+
     #root>#menu {
         /* background-color: rgb(59, 104, 104); */
         border-right: 2px black solid;
@@ -170,8 +178,9 @@ body{
     }
 
     #core>#source {
-        background-color: rgb(36, 36, 36);
+        
         color: white;
+        
     }
 
     #root>#core>footer {
