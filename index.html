@@ -17,17 +17,30 @@
         
         <div id="root">
             <div id="menu">
-                <div id="title" onclick="menuHide();loadData('home');listUpdate()">LandWar Dev Blog</div>
+                <!-- <div id="title" onclick="menuHide();loadData('home');listUpdate()">Pralever Dev Blog</div> -->
+                <div id="title" onclick="menuHide();loadData('home');">Pralever Dev Blog</div>
                 <div id="list">
-                    Please Wait...
+                    <div class="root" onclick="rootItemDisplay('landwar')">
+                        <h3><span id="landwar-direction">></span> ROOT</h3>
+                        <div class="rootitem" id="landwar-items" style="display: none;">
+                            <div class="item">
+                                <h3>title</h3>
+                                <div>datastring</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h3>title</h3>
+                        <div>datastring</div>
+                    </div>
                 </div>
                 <!-- <div id="darkmode"></div> -->
             </div>
             <div id="core">
                 <div id="source">Loading...</div>
                 <footer>
-                    <span>© Pralever Network & advn1357 2024</span>
-                    <span><a href="http://discord.landwar.kro.kr" target="_blank">Discord</a>•<a href="https://github.com/pralevernetwork" target="_blank">Github</a>-Original Source</span>
+                    <span>© Pralever Network 2024</span>
+                    <span><a href="" target="_blank">Discord</a>•<a href="https://github.com/pralevernetwork" target="_blank">Github</a>-<a href="https://github.com/pralevernetwork/devblog" target="_blank">Original Source</a></span>
                 </footer>
             </div>
         </div>
