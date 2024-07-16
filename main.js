@@ -11,8 +11,14 @@ var params = new URLSearchParams(window.location.search)
 getLoadingData();
 
 function getLoadingData(){
-    if(params.has("id")){
-        loadData(params.get("id"));
+    var cookie=getCookie("latestLoad");
+
+    if((params.has("id"))){
+        document.cookie = "latestLoad="+params.get("id")+";max-age=300";
+        location.search = "";
+    }
+    else if(cookie!=null){
+        loadData(cookie)
     }
     else{
         loadData("home");
@@ -26,8 +32,8 @@ function loadData(url){
     var template_url = "source/"+url;
     http.open("GET", template_url)
 
-    http.onprogress = function(){
-        //document.getElementById("source").innerHTML = "loading...";
+    http.onloadstart = function(){
+        document.getElementById("source").innerText = "Loading...";
     }
 
     http.onload = function() {
@@ -42,7 +48,8 @@ function loadData(url){
         //body.innerHTML = response
         document.getElementById("source").innerHTML = response;
         // history.pushState(null, document.title, "/?id="+url);
-        document.title = "LandWar DevLog - "+document.getElementById("header").innerText;
+        document.cookie = "latestLoad="+url+";max-age=300";
+        document.title = "LandWar Dev Blog - "+document.getElementById("header").innerText;
         summonShareLink(url);
     }
 
@@ -157,7 +164,7 @@ function copyURL(url){
     var value = window.location.protocol+"//"+window.location.host+"/?id="+url;
     navigator.clipboard.writeText(value);
 
-    alert("복사되었습니다! "+value);
+    // alert("복사되었습니다! "+value);
 }
 
 function menuShow(){
@@ -184,4 +191,9 @@ function rootItemDisplay(id){
         item.style.display = "none";
         direction.innerHTML = ">"
     }
+}
+
+function getCookie(name) {
+    var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return value? value[2] : null;  
 }

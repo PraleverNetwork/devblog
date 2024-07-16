@@ -1,3 +1,7 @@
+#core>#source h1{
+    margin: 0 0 0px 0;
+}
+
 #core>#source h2{
     margin: 10px 0 10px 0;
     border-bottom: 1px solid black;
@@ -13,6 +17,11 @@
 
 #core>#source h5{
     margin: 10px 0 10px 0;
+}
+
+#core>#source>#author {
+    margin-bottom: 10px;
+    color: gray;
 }
 
 #core>#source a{
@@ -31,6 +40,7 @@
 }
 
 #core>#source div.note {
+    padding: 5px 0 0px 0;
     background-color: rgb(186, 186, 222);
     margin: 5px 0 5px 0;
     font-weight: 600;
@@ -40,6 +50,8 @@
 #core>#source div.note>div {
     background-color: rgb(142, 142, 205);
     color: white;
+    margin-top: 5px;
+    padding: 5px 0 5px 0;
     font-weight: 400;
 }
 
