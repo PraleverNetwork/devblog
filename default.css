@@ -102,12 +102,14 @@ body{
 
 #root>#core{
     /* background-color: beige; */
-    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 #root>#core>#source{
     padding: 5px 10px 5px 10px;
     min-height: calc( 100vh - 60px);
+    overflow-y: auto;
 }
 
 #root>#core>footer {
@@ -147,6 +149,12 @@ body{
 
     #core>#source{
         min-height: calc( 100vh - 90px);
+    }
+
+    #root>#core>footer{
+        display: block;
+        /* flex-direction: column; */
+        line-height: normal;
     }
 }
 

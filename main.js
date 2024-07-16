@@ -48,7 +48,7 @@ function loadData(url){
         //body.innerHTML = response
         document.getElementById("source").innerHTML = response;
         // history.pushState(null, document.title, "/?id="+url);
-        document.cookie = "latestLoad="+url+";max-age=300";
+        document.cookie = "latestLoad="+url+";max-age=3600";
         document.title = "LandWar Dev Blog - "+document.getElementById("header").innerText;
         summonShareLink(url);
     }
