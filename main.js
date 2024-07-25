@@ -49,7 +49,12 @@ function loadData(url){
         document.getElementById("source").innerHTML = response;
         // history.pushState(null, document.title, "/?id="+url);
         document.cookie = "latestLoad="+url+";max-age=3600";
-        document.title = "LandWar Dev Blog - "+document.getElementById("header").innerText;
+        var title = document.getElementById("header").innerText
+        document.title = "LandWar Dev Blog - "+title;
+        
+        document.getElementById("meta_title").setAttribute("content", "Pralever DevBlog - "+title);
+        document.getElementById("meta_url").setAttribute("content", "https://blog.pralever.net?id="+url);
+
         summonShareLink(url);
     }
 
