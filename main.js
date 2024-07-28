@@ -8,6 +8,12 @@ var params = new URLSearchParams(window.location.search)
 //     getLoadingData();
 // });
 
+if(location.host !='127.0.0.1:5501' ){
+    document.oncontextmenu = function(){return false;}
+    document.ondragstart =  function(){return false;}
+    document.onselectstart =  function(){return false;}
+}
+
 getLoadingData();
 
 function getLoadingData(){

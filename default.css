@@ -1,10 +1,75 @@
+
+@media (max-width:767px){
+
+    body{
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    #top{
+        display: block;
+        position: fixed;
+        width: 100vw;
+    }
+
+    #root{
+        display: block;
+        /* max-height: calc(100vh - 40px); */
+    }
+
+    #root>#menu{
+        display: none;
+        width: 300px;
+        display: none;
+        position: absolute;
+        bottom: 0px;
+        height: 100vh;
+        /* padding-bottom: 40px; */
+        overflow: auto;
+    }
+
+    #core>#source{
+        margin-top: 40px;
+        /* height: calc(100vh - 40px); */
+        /* height: calc( 100% -px); */
+        /* overflow: auto; */
+    }
+
+    #root>#core>footer{
+        display: block;
+        /* flex-direction: column; */
+        line-height: normal;
+        /* padding-bottom: 40px; */
+    }
+
+    #title{
+        height: 60px;
+    }
+}
+
+@media (min-width:768px){
+    #root{
+        display: grid;
+        grid-template-columns: 302px 1fr;
+        min-height: 100vh;
+    }
+
+    #root>#menu{
+        display: grid;
+        grid-template-rows: 60px 1fr;
+    }
+
+    #top{
+        display: none;
+    }
+}
+
 body{
     margin: 0;
     background-color: azure;
 }
 
 #top {
-    display: none;
     height: 40px;
     background-color: greenyellow
 }
@@ -28,16 +93,11 @@ body{
     height: 100%;
 }
 
-#root{
-    display: grid;
-    grid-template-columns: 302px 1fr;
-    min-height: 100vh;
-}
+
 
 #root>#menu{
-    background-color: aqua;
-    display: grid;
     grid-template-rows: 60px 1fr;
+    background-color: aqua;
     border-right: 2px black solid;
 }
 
@@ -51,6 +111,7 @@ body{
 #root>#menu>#list{
     background-color: greenyellow;
     border-top: 1px solid black;
+    /* min-height: calc( 100vh - 60px); */
 }
 
 #root>#menu>#list .item {
@@ -128,34 +189,6 @@ body{
 
 #root>#core>footer a:hover {
     color: rgb(38, 23, 105);
-}
-
-@media (max-width:800px){
-    #top{
-        display: block;
-    }
-
-    #root{
-        display: block;
-    }
-
-    #root>#menu{
-        width: 300px;
-        display: none;
-        position: absolute;
-        bottom: 0px;
-        height: 100vh;
-    }
-
-    #core>#source{
-        min-height: calc( 100vh - 90px);
-    }
-
-    #root>#core>footer{
-        display: block;
-        /* flex-direction: column; */
-        line-height: normal;
-    }
 }
 
 @media (prefers-color-scheme: dark) {
