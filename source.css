@@ -1,3 +1,8 @@
+#core>#source .contents{
+    border: 1px solid black;
+    width: 300px;
+}
+
 #core>#source h1{
     margin: 0 0 0px 0;
 }
@@ -41,21 +46,29 @@
 
 #core>#source div.note {
     padding: 5px 0 0px 0;
-    background-color: rgb(186, 186, 222);
+    background-color: rgb(200, 200, 224);
     margin: 5px 0 5px 0;
     font-weight: 600;
     color: black
 }
 
 #core>#source div.note>div {
-    background-color: rgb(142, 142, 205);
-    color: white;
+    background-color: rgb(153, 153, 206);
+    color: rgb(0, 0, 0);
     margin-top: 5px;
     padding: 5px 0 5px 0;
     font-weight: 400;
 }
 
+#core>#source div.comment{
+    margin-bottom: 3px;
+}
+
 @media (prefers-color-scheme: dark) {
+    #core>#source .contents{
+        border: 1px solid white;
+    }
+
     #core>#source a{
         color: aqua;
 

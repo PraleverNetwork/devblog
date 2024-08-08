@@ -14,6 +14,18 @@ if(location.host !='127.0.0.1:5501' ){
     document.onselectstart =  function(){return false;}
 }
 
+let vh = window.innerHeight * 0.01;
+
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+
+    document.getElementById("background").style.display = "";
+    document.getElementById("menu").style.display = "";
+  })
+
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+
 getLoadingData();
 
 function getLoadingData(){
