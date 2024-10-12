@@ -66,7 +66,8 @@ function loadData(url){
         var response = http.response
 
         //body.innerHTML = response
-        document.getElementById("source").innerHTML = response;
+        document.getElementById("source").innerHTML = response
+        process()
         // history.pushState(null, document.title, "/?id="+url);
         document.cookie = "latestLoad="+url+";max-age=3600";
         var title = document.getElementById("header").innerText
@@ -172,7 +173,6 @@ function listUpdate(){
         // });
 
         document.getElementById("list").innerHTML = result;
-        process()
         console.log("[PRLDevBlog] Finish collecting data");
     }
 
