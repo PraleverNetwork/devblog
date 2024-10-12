@@ -8,11 +8,7 @@ var params = new URLSearchParams(window.location.search)
 //     getLoadingData();
 // });
 
-if(location.host !='127.0.0.1:5501' ){
-    document.oncontextmenu = function(){return false;}
-    document.ondragstart =  function(){return false;}
-    document.onselectstart =  function(){return false;}
-}
+
 
 let vh = window.innerHeight * 0.01;
 
@@ -25,6 +21,12 @@ window.addEventListener('resize', () => {
   })
 
 document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+if(location.host !='127.0.0.1:5501' ){
+    document.oncontextmenu = function(){return false;}
+    document.ondragstart =  function(){return false;}
+    document.onselectstart =  function(){return false;}
+}
 
 getLoadingData();
 
@@ -70,8 +72,8 @@ function loadData(url){
         var title = document.getElementById("header").innerText
         document.title = "LandWar Dev Blog - "+title;
         
-        document.getElementById("meta_title").setAttribute("content", "Pralever DevBlog - "+title);
-        document.getElementById("meta_url").setAttribute("content", "https://blog.pralever.net?id="+url);
+        // document.getElementById("meta_title").setAttribute("content", "Pralever DevBlog - "+title);
+        // document.getElementById("meta_url").setAttribute("content", "https://blog.pralever.net?id="+url);
 
         summonShareLink(url);
     }
@@ -170,6 +172,7 @@ function listUpdate(){
         // });
 
         document.getElementById("list").innerHTML = result;
+        process()
         console.log("[PRLDevBlog] Finish collecting data");
     }
 
@@ -219,4 +222,31 @@ function rootItemDisplay(id){
 function getCookie(name) {
     var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
     return value? value[2] : null;  
+}
+
+function process(){
+    console.log("[PRLDevBlog] Process display style")
+
+    comments_object = document.getElementById("meta_comments")
+    if(comments_object!=null){
+        comments = parseInt(comments_object.getAttribute("value"))
+        console.log(comments)
+
+        loop = 1
+        source = document.getElementById("source").innerHTML
+        while(loop<=comments){
+            index = "`"+loop+"`"
+            tooltip = document.getElementById("comment_source"+loop).innerHTML;
+            console.log(index+" | "+tooltip)
+
+            output = "<sup class='tooltip' id='comment_t"+loop+"'><a href='#comment"+loop+"'>["+loop+"]</a>{T}</sup>".replaceAll("{T}", "<span class='tooltiptext'> <a href='#comment"+loop+"'>["+loop+"]</a> "+tooltip+"</span>")
+            source = source.replaceAll(index, output)
+
+            loop += 1;
+        }
+        // console.log(source)
+        document.getElementById("source").innerHTML = source
+    }
+
+    console.log("[PRLDevBlog] Completed process display style")
 }
