@@ -4,4 +4,4 @@
     뭐가 잘못 입력한 것 같습니다. 아니면 어둠의 손이 닿을수도 있겠네요. 다시 한 번 더 확인해주세요!
 </p>
 
-<button onclick="window.location.replace('/')">홈으로 돌아가기</a>
+<button onclick="document.cookie='latestLoad=; max-age=0; path=/';window.location.replace('/')">홈으로 돌아가기</a>

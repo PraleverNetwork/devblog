@@ -100,6 +100,20 @@
     /* text-overflow: ellipsis; */
 }
 
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 5px 0 5px 0;
+}
+tr {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+    padding: 3px 5px 3px 5px;
+}
+
 /* Tooltip arrow */
 .tooltip .tooltiptext::after {
     content: "";
@@ -137,6 +151,16 @@
     }
 
     #core>#source div.cite{
+        border: 1px solid white;
+    }
+
+    table {
+        border: 1px solid white;
+    }
+    tr {
+        border: 1px solid white;
+    }
+    td {
         border: 1px solid white;
     }
 }
